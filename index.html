@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Annuaire</title>
 	<meta charset="utf-8">
 	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div class="container">
+	<div class="row">
 
-	<label>Nom :</label> <input type="text" id="Nom">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Nom :</label>
+				<input type="text" id="Nom"  class="form-control" />
+			</div>				
 
-	<label>Prénom :</label> <input type="text" id="Prenom">
+			<div class="form-group">
+				<label>Prénom :</label>
+				<input type="text" id="Prenom"  class="form-control"/>
+			</div>
 
-	<label>Age :</label> <input type="number" id="Age">
+			<div class="form-group">
+				<label>Age :</label> 
+				<input type="number" id="Age"  class="form-control"/>
+			</div>
 
-	<button id="button">enregistrer</button>
-	<div id="annuaire">
-		<table border="5" id="table">
-			<tr>
-				<th>Nom</th>
-				<th>Prénom</th>
-				<th>Age</th>
-				<th>Supprimer</th>
-			</tr>
-		</table>	
+			<div class="form-group">
+				<label>Mail :</label> 
+				<input type="mail" id="Mail"  class="form-control"/>
+			</div>
+
+			<div class="form-group">
+				<label>Tél :</label> 
+				<input type="text" id="Tel"  class="form-control">
+			</div>
+
+			<button id="button" class="btn btn-success">enregistrer</button>
+		</div>
+
+		<div class="col-md-8">
+			<h1>Mon Annuaire</h1>
+			<div id="annuaire">
+				<table class="table table-striped" id="table">
+					<thead>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Age</th>
+						<th>Mail</th>
+						<th>Tél</th>
+						<th>Supprimer</th>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>	
+			</div>
+		</div>	
 	</div>
-
+</div>	
 
 	<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="app.js"></script>
 </body>

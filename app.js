@@ -13,6 +13,8 @@ $( document ).ready(function() {
 	var nom = ""; 
 	var prenom = "";
 	var age = "";
+	var Mail = "";
+	var Tel = "";
 
 	$("#Nom").keyup(function(){
 		nom = $("#Nom").val();
@@ -32,16 +34,29 @@ $( document ).ready(function() {
 
 	});	
 
+	$("#Mail").keyup(function(){
+		mail = $("#Mail").val();
+	
+
+	});	
+
+	$("#Tel").keyup(function(){
+		tel = $("#Tel").val();
+	
+
+	});	
+
 	$("#button").click(function(){
 	   
 	   //console.log(prenom);
 	   //console.log(nom);
 	   //console.log(personne);
-		var personne = {"Nom" : nom, "Prenom" : prenom, "Age" : age}
-		$("#table").append('<tr><td>'+nom+'</td><td>'+prenom+'</td><td>'+age+'</td><td><button id="bsupp">Supprimer</button></td></tr>');
+		var personne = {"Nom" : nom, "Prenom" : prenom, "Age" : age, "Mail" : mail, "Tel" : tel}
+		$("#table").append('<tr><td>'+nom+'</td><td>'+prenom+'</td><td>'+age+'</td><td>'+mail+'</td><td>'+ tel+'</td><td><button id="bsupp" class="btn btn-danger">Supprimer</button></td></tr>');
 		$("input").val("");
 		annuaire.push(personne);
 		//console.log(annuaire);
+		
 
 	});
 
@@ -51,7 +66,7 @@ $("#table").delegate("#bsupp", 'click', function(){
 	
 		$(this).parent().parent().remove();
 		
-		//console.log(delet);
+		//console.log(annuaire);
 		
 }); 
 
@@ -75,3 +90,11 @@ $(function() {
 	}
 		 
  });
+
+
+	$("#table").delegate('thead', 'click', function(){
+		
+		$("#table").tablesorter().trigger("update");
+    }); 
+		
+		
