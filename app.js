@@ -70,8 +70,6 @@ $(function() {
       $(leFocus).css('background-color', '#fff');
   	});
 	  
-
-
 	function efface_formulaire() {
 	    $('form').find("textarea, :text, select").val("").end().find(":checked").prop("checked", false);
 	}
