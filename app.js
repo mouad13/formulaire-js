@@ -1,32 +1,29 @@
+var annuaire = [];
+
 var info = {
 
-	"Prenom" : "",
 	"Nom" : "",
+	"Prenom" : "",
 	"Age" : 0
 };
 
 
-//$("#annuaire").text(function(personne){
-
-
-//});
-
 $( document ).ready(function() {
 
-	var prenom = "";
 	var nom = ""; 
+	var prenom = "";
 	var age = "";
+
+	$("#Nom").keyup(function(){
+		nom = $("#Nom").val();
+
+	});	
 
 	$("#Prenom").keyup(function(){
 		prenom = $("#Prenom").val();
 
 	});
 
-
-	$("#Nom").keyup(function(){
-		nom = $("#Nom").val();
-
-	});	
 
 
 	$("#Age").keyup(function(){
@@ -40,12 +37,43 @@ $( document ).ready(function() {
 	   //console.log(prenom);
 	   //console.log(nom);
 	   //console.log(personne);
-	   var personne = {"Prenom" : prenom, "Nom" : nom, "Age" : age}
-		$("#table").append( $('<tr><td>'+prenom+'</td><td>'+nom+'</td><td>'+age+'</td></tr>'));
+		var personne = {"Nom" : nom, "Prenom" : prenom, "Age" : age}
+		$("#table").append('<tr><td>'+nom+'</td><td>'+prenom+'</td><td>'+age+'</td><td><button id="bsupp">Supprimer</button></td></tr>');
 		$("input").val("");
+		annuaire.push(personne);
+		//console.log(annuaire);
 
 	});
 
  });
- 
 
+$("#table").delegate("#bsupp", 'click', function(){
+	
+		$(this).parent().parent().remove();
+		
+		//console.log(delet);
+		
+}); 
+
+
+$(function() {
+
+    var leFocus; 
+
+    $('input').focus( function() {
+      leFocus = '#' + $(this).attr('id');       
+      $(leFocus).css('background-color', '#afc');
+    });
+
+    $('input').blur( function() {
+      leFocus = '#' + $(this).attr('id');       
+      $(leFocus).css('background-color', '#fff');
+  	});
+	  
+
+
+	function efface_formulaire() {
+	    $('form').find("textarea, :text, select").val("").end().find(":checked").prop("checked", false);
+	}
+		 
+ });
